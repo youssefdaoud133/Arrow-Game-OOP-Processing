@@ -3,44 +3,53 @@ class Game {
    private boolean Route;
    private boolean level1;
    private boolean level2;
-   PImage photo;
+   private int LastScore = 0;
+   private int CurrentScore;
+   PImage BackgroundImage;
    PFont font;
    
    //Methods
-   void setRoute(boolean s){
-     Route = s;
+   
+   Game(){
+      BackgroundImage = loadImage("../background/Background.jpg");
+      font = createFont("../fonts/KnightWarrior-w16n8.otf",1);
+      image(BackgroundImage,0,0);
+   }
+   
+   void setRoute(boolean route){
+     Route = route;
    }
    
    boolean getRoute(){
      return Route;
    }
    
+   void setCurrentScore(int score){
+        CurrentScore = score;
+   }
+   
+   int getCurrentScore(){
+     return CurrentScore;
+   }
+   
   void Home(){
-      font = createFont("../fonts/KnightWarrior-w16n8.otf",1);
-    //New Game
+    //title
       fill(212, 145, 69);
       textFont(font,90);
-      text("New Game",305,260);
-    
-      //Level 1----------------------------
+      text("Arrow-Bow",305,260);
+      //Start----------------------------
       if(mousePressed && mouseButton == LEFT && mouseX >= 415 && mouseX <= 535 && mouseY >= 310 && mouseY <= 360){
         Route = false;
         level1 = true;
       }
       fill(212, 145, 69);
       textFont(font,40);
-      text("level 1",420,350);
-    
-      //level 2------------------------------
-      if(mousePressed && mouseButton == LEFT && mouseX >= 415 && mouseX <= 535 && mouseY >= 400 && mouseY <= 450){
-        Route = false;
-        level2 = true;
-      }
-      fill(212, 145, 69);
-      textFont(font,40);
-      text("level 2",420,435);
+      text("Start",420,350);
+      //Last score 
+      
+      
   }
   void Start(){
-    
+    image(BackgroundImage,0,0);
   }
 }
