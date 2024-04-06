@@ -4,6 +4,7 @@ class Game {
    private boolean Route;
    private int LastScore = 0;
    private int CurrentScore;
+   
    PImage BackgroundImage;
    //Methods
    Game(){
@@ -37,11 +38,16 @@ class Game {
       NewButton.drawButton("Last Score : "+LastScore,32,335,350,250,40);
     }
   
-character c1 = new character();
   void Start(){
+ 
+    Character c1 = new Character("Human");
     image(BackgroundImage,0,0);
+    
     if(mousePressed && mouseButton == RIGHT)
+    {
     c1.readysituation();
+    c1.setCase(true);
+    }
     else c1.normalsituation();
   }
 }
