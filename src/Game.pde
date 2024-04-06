@@ -45,9 +45,9 @@ class Game {
     
     if(mousePressed && mouseButton == RIGHT)
     {
-    c1.readysituation();
+    c1.ReadySituation();
     c1.setCase(true);
     }
-    else c1.normalsituation();
+    else c1.NormalSituation();
   }
 }

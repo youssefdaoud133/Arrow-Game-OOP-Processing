@@ -1,15 +1,15 @@
    class Character extends Game {
   private float CharacterX = 10;
-  private float charactery = mouseY;
-  private float characterwidth = 165;
-  private float characterheight = 145;
-  PImage characterImage1;
-  PImage characterImage2;
+  private float CharacterY = mouseY;
+  private float CharacterWidth = 165;
+  private float CharacterHeight = 145;
+  PImage CharacterImage1;
+  PImage CharacterImage2;
   private boolean Case =false;
   
   Character(String TypeOfCharacter){
-   characterImage1 = loadImage("../characters/"+TypeOfCharacter+"Case0.png");
-   characterImage2 = loadImage("../characters/"+TypeOfCharacter+"Case1.png");
+   CharacterImage1 = loadImage("../characters/"+TypeOfCharacter+"Case0.png");
+   CharacterImage2 = loadImage("../characters/"+TypeOfCharacter+"Case1.png");
   }
  
   void setCase(boolean iscase ){
@@ -19,14 +19,14 @@
      return Case;
    }
  
-    void normalsituation(){
+    void NormalSituation(){
       
-      image(characterImage1, CharacterX, charactery-(characterheight/2), characterwidth, characterheight);
+      image(CharacterImage1, CharacterX, CharacterY-(CharacterHeight/2), CharacterWidth, CharacterHeight);
 
   } 
-        void readysituation(){ 
+        void ReadySituation(){ 
            
-          image(characterImage2, CharacterX, charactery-(characterheight/2), characterwidth, characterheight);
+          image(CharacterImage2, CharacterX, CharacterY-(CharacterHeight/2), CharacterWidth, CharacterHeight);
 
    }
        
