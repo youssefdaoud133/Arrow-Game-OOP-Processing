@@ -7,6 +7,7 @@ void setup(){
   //Objects-----------------------
   NewGame = new  Game();
   NewGame.setRoute(true);
+   cursor(HAND);
 }
 
 void draw(){

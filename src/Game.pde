@@ -1,20 +1,18 @@
 class Game {
-  //declaration
-  PImage photo;
-  PFont font;
-  
   //variables
-   private boolean Status;
+   private boolean Route;
    private boolean level1;
    private boolean level2;
+   PImage photo;
+   PFont font;
    
    //Methods
    void setRoute(boolean s){
-     Status = s;
+     Route = s;
    }
    
    boolean getRoute(){
-     return Status;
+     return Route;
    }
    
   void Home(){
@@ -26,7 +24,7 @@ class Game {
     
       //Level 1----------------------------
       if(mousePressed && mouseButton == LEFT && mouseX >= 415 && mouseX <= 535 && mouseY >= 310 && mouseY <= 360){
-        Status = false;
+        Route = false;
         level1 = true;
       }
       fill(212, 145, 69);
@@ -35,12 +33,14 @@ class Game {
     
       //level 2------------------------------
       if(mousePressed && mouseButton == LEFT && mouseX >= 415 && mouseX <= 535 && mouseY >= 400 && mouseY <= 450){
-        Status = false;
+        Route = false;
         level2 = true;
       }
       fill(212, 145, 69);
       textFont(font,40);
       text("level 2",420,435);
   }
-  void Start(){}
+  void Start(){
+    
+  }
 }
