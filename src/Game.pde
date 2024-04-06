@@ -36,7 +36,12 @@ class Game {
       //Last score--------------
       NewButton.drawButton("Last Score : "+LastScore,32,335,350,250,40);
     }
+  
+character c1 = new character();
   void Start(){
     image(BackgroundImage,0,0);
+    if(mousePressed && mouseButton == RIGHT)
+    c1.readysituation();
+    else c1.normalsituation();
   }
 }
