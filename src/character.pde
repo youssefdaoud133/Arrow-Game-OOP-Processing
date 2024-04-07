@@ -1,6 +1,6 @@
    class Character extends Game {
   private float CharacterX = 10;
-  private float CharacterY = mouseY;
+  private float CharacterY ;
   private float CharacterWidth = 165;
   private float CharacterHeight = 145;
   PImage CharacterImage1;
@@ -30,12 +30,16 @@
 
    }
 Arrow CreateArrow(){
- Arrow A1=new Arrow(CharacterY-(CharacterHeight/2));
+ Arrow A1=new Arrow(CharacterY-(CharacterHeight/4)+20);
 
 return A1;
 
 
-}       
+}  
+
+void UpdateY(){
+    CharacterY=mouseY >=370? 370: mouseY;
+  }
        
 
         

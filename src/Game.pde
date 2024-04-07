@@ -7,6 +7,11 @@ class Game {
   // New variables to track the state of the mouse buttons
   private boolean rightClicked = false;
   private boolean leftClicked = false;
+  //suhila
+      
+  //
+   
+   Character c1;
    
    PImage BackgroundImage;
    //Methods
@@ -34,16 +39,18 @@ class Game {
   void Home(){
       //Start-------------------
       NewButton.drawButton("Start",64,360,200,200,80);
-      if(mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280)
+      if(mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280){
         Route = false;
+         c1 = new Character("Human");
+      }
       
       //Last score--------------
       NewButton.drawButton("Last Score : "+LastScore,32,335,350,250,40);
     }
   
  void Start(){
- 
-    Character c1 = new Character("Human");
+   c1.UpdateY();
+
     image(BackgroundImage,0,0);
     
     if(mousePressed && mouseButton == RIGHT) {
@@ -64,8 +71,8 @@ class Game {
     if(rightClicked && leftClicked) {
       /********************/
       //Suhila
-     Arrow A1 =c1.CreateArrow();
-      A1.display();
+       
+     
       /********************/
       // Reset both flags after action is performed
       rightClicked = false;
@@ -75,5 +82,12 @@ class Game {
       rightClicked = false;
       leftClicked = false;
     }
+    
+
+    
+
+   
+   
   }
+  
 }

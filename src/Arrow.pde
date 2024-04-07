@@ -1,6 +1,6 @@
 class Arrow {
  private PImage ArrowPhoto; 
-private float ArrowX=10;
+private float ArrowX=70;
 private float ArrowY;
   Arrow(float CharacterY) {
   ArrowY=CharacterY;
@@ -9,14 +9,14 @@ private float ArrowY;
   }
   void display() {
    
- image(ArrowPhoto, ArrowX, ArrowY);
+     image(ArrowPhoto, ArrowX, ArrowY, 100,100 );
    
 
   }
   
   void  ObjectPosition() {
 
-  ArrowX += 7;
+  ArrowX += 14;
  // if (ArrowX> width) {
 //   ArrowX = 0; }
 }
