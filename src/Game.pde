@@ -8,7 +8,16 @@ class Game {
   private boolean rightClicked = false;
   private boolean leftClicked = false;
   //suhila
-      
+ 
+      Arrow[] FiredArrows=new Arrow[20];
+      int NumberOfFiredArrows=0;
+     // void calcnumber() {
+    //    if (mouseButton == RIGHT){
+  //   firedArrows[numFiredArrows] = new Arrow(, );
+ // numFiredArrows++;
+ //     } 
+      // text("Fired Arrows: " + numFiredArrows, 10, 20);
+ //     }
   //
    
    Character c1;
@@ -55,7 +64,7 @@ class Game {
     
     if(mousePressed && mouseButton == RIGHT) {
       c1.ReadySituation();
-      c1.setCase(true);
+      //c1.setCase(true);
       rightClicked = true; // Set flag to true when right-clicked
     }
     else {
@@ -65,14 +74,14 @@ class Game {
     
     // Check for left-click and if right-click was previously done
     if(mousePressed && mouseButton == LEFT) {
-      c1.setCase(false);
+     // c1.setCase(false);
       leftClicked = true; // Reset flag after action is performed
     }
     if(rightClicked && leftClicked) {
       /********************/
       //Suhila
-       
-     
+       FiredArrows[NumberOfFiredArrows]=(c1.CreateArrow());
+     NumberOfFiredArrows++;
       /********************/
       // Reset both flags after action is performed
       rightClicked = false;
@@ -82,7 +91,13 @@ class Game {
       rightClicked = false;
       leftClicked = false;
     }
+    // display and update arrow position
+    for(int i=0; i<NumberOfFiredArrows;i++){
     
+    FiredArrows[i].display();
+    FiredArrows[i].ObjectPosition();
+    
+    }
 
     
 
