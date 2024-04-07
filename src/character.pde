@@ -29,7 +29,13 @@
           image(CharacterImage2, CharacterX, CharacterY-(CharacterHeight/2), CharacterWidth, CharacterHeight);
 
    }
-       
+Arrow CreateArrow(){
+ Arrow A1=new Arrow(CharacterY-(CharacterHeight/2));
+
+return A1;
+
+
+}       
        
 
         

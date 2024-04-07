@@ -64,8 +64,8 @@ class Game {
     if(rightClicked && leftClicked) {
       /********************/
       //Suhila
-      println("arrow");
-      
+     Arrow A1 =c1.CreateArrow();
+      A1.display();
       /********************/
       // Reset both flags after action is performed
       rightClicked = false;
