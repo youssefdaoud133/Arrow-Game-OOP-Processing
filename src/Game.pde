@@ -61,7 +61,11 @@ class Game {
    c1.UpdateY();
 
     image(BackgroundImage,0,0);
+    // check if we consume all arrows
+    if(NumberOfFiredArrows==20){
+      
     
+    }else{
     if(mousePressed && mouseButton == RIGHT) {
       c1.ReadySituation();
       //c1.setCase(true);
@@ -77,12 +81,12 @@ class Game {
      // c1.setCase(false);
       leftClicked = true; // Reset flag after action is performed
     }
+    // when arrow shoul fired
     if(rightClicked && leftClicked) {
-      /********************/
-      //Suhila
+     
        FiredArrows[NumberOfFiredArrows]=(c1.CreateArrow());
-     NumberOfFiredArrows++;
-      /********************/
+       NumberOfFiredArrows++;
+      
       // Reset both flags after action is performed
       rightClicked = false;
       leftClicked = false;
@@ -91,6 +95,7 @@ class Game {
       rightClicked = false;
       leftClicked = false;
     }
+    
     // display and update arrow position
     for(int i=0; i<NumberOfFiredArrows;i++){
     
@@ -101,7 +106,7 @@ class Game {
 
     
 
-   
+    }
    
   }
   

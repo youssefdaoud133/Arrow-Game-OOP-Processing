@@ -16,7 +16,7 @@ private float ArrowY;
   
   void  ObjectPosition() {
 
-  ArrowX += 14;
+  ArrowX += 10;
  // if (ArrowX> width) {
 //   ArrowX = 0; }
 }
