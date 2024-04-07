@@ -4,6 +4,9 @@ class Game {
    private boolean Route;
    private int LastScore = 0;
    private int CurrentScore;
+  // New variables to track the state of the mouse buttons
+  private boolean rightClicked = false;
+  private boolean leftClicked = false;
    
    PImage BackgroundImage;
    //Methods
@@ -38,16 +41,39 @@ class Game {
       NewButton.drawButton("Last Score : "+LastScore,32,335,350,250,40);
     }
   
-  void Start(){
+ void Start(){
  
     Character c1 = new Character("Human");
     image(BackgroundImage,0,0);
     
-    if(mousePressed && mouseButton == RIGHT)
-    {
-    c1.ReadySituation();
-    c1.setCase(true);
+    if(mousePressed && mouseButton == RIGHT) {
+      c1.ReadySituation();
+      c1.setCase(true);
+      rightClicked = true; // Set flag to true when right-clicked
     }
-    else c1.NormalSituation();
+    else {
+      c1.NormalSituation();
+      //rightClicked = false; // Reset flag when not right-clicked
+    }
+    
+    // Check for left-click and if right-click was previously done
+    if(mousePressed && mouseButton == LEFT) {
+      c1.setCase(false);
+      leftClicked = true; // Reset flag after action is performed
+    }
+    if(rightClicked && leftClicked) {
+      /********************/
+      //Suhila
+      println("arrow");
+      
+      /********************/
+      // Reset both flags after action is performed
+      rightClicked = false;
+      leftClicked = false;
+    } else if (!mousePressed) {
+      // Reset leftClicked if the mouse is not pressed
+      rightClicked = false;
+      leftClicked = false;
+    }
   }
 }
