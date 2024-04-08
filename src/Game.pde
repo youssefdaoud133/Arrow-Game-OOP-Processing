@@ -166,6 +166,7 @@ class Game {
                         if(distance<40 && !Firedballon[j].Hide){
                             Firedballon[j].Hide = true;
                             HideBallons++;
+                            Score=(21-NumberOfFiredArrows)*HideBallons;
                             println(HideBallons);
                         }
           } }
