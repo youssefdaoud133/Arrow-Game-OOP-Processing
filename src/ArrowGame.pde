@@ -4,7 +4,7 @@ void setup(){
   //Objects-----------------------
   NewGame = new  Game();
   NewGame.setRoute(true);
-   cursor(HAND);
+  cursor(HAND);
 }
 
 void draw(){
@@ -12,10 +12,12 @@ void draw(){
   if(NewGame.getRoute()){
     NewGame.Home();
   }
-  
+  //Character selection
+  if(NewGame.getSelection()){
+    NewGame.CharcSelect();
+  }
   //Start page-----------------
   if(!NewGame.getRoute()){
     NewGame.Start();
   }
-  
 }
