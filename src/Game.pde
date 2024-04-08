@@ -8,17 +8,10 @@ class Game {
   private boolean rightClicked = false;
   private boolean leftClicked = false;
   
-  //suhila**************************************
+ 
      Arrow[] FiredArrows=new Arrow[20];
      int NumberOfFiredArrows=0;
- //*********************************************
-// void calcnumber() {
-//    if (mouseButton == RIGHT){
-//   firedArrows[numFiredArrows] = new Arrow(, );
-// numFiredArrows++;
-//     } 
-// text("Fired Arrows: " + numFiredArrows, 10, 20);
-//     }
+
    Utils NewButton = new Utils();
    Character c1;
    PImage BackgroundImage;
