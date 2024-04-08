@@ -102,7 +102,7 @@ class Game {
      image(BackgroundImage,0,0);
      c1.UpdateY();
       // check if we consume all arrows
-      if((NumberOfFiredArrows==20 || HideBallons == 15)&&FiredArrows[19].getX()>960){
+      if((NumberOfFiredArrows==20&&FiredArrows[19].getX()>960 || HideBallons == 15)){
         if(HideBallons == 15){
             text("Level 1 completed",400,210,300,100);
                text("Score: "+Score,650,490,180,40);
@@ -134,7 +134,7 @@ class Game {
         leftClicked = true; // Reset flag after action is performed
       }
       // when arrow shoul fired
-      if(rightClicked&&NumberOfFiredArrows<20) {
+      if(rightClicked&&leftClicked&&NumberOfFiredArrows<20) {
          FiredArrows[NumberOfFiredArrows]=(c1.CreateArrow());
          NumberOfFiredArrows++;
          RemainingArrows--;
