@@ -8,6 +8,12 @@ class Arrow {
     ArrowPhoto = loadImage("../arrows/arrow.png");
       
   }
+  float getX(){
+    return ArrowX;
+  }
+    float getY(){
+    return ArrowY;
+  }
   void display() {
     image(ArrowPhoto, ArrowX, ArrowY, 100,100 );
   

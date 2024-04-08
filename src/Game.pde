@@ -5,9 +5,11 @@ class Game {
    private int LastScore = 0;
    private int CurrentScore;
    private int Score = 0;
+   
   // New variables to track the state of the mouse buttons
   private boolean rightClicked = false;
   private boolean leftClicked = false;
+  int HideBallons = 0;
   boolean ch = false;
           
      Arrow[] FiredArrows=new Arrow[20];  
@@ -59,9 +61,18 @@ class Game {
       }
       //Last score--------------
       NewButton.drawButton("Last Score : "+LastScore,32,335,350,250,40);
+           if(!ch){
+             for(int i=0;i<15;i++)
+              {
+               Firedballon[i]=new RedBallon(i*40);
+               
+              }
+              ch = true;
+           }
     }
     
   void CharcSelect(){
+
      Character1 = loadImage("../characters/ArlekinaCase0.png");
      Character2 = loadImage("../characters/HumanCase0.png");
      Character3 = loadImage("../characters/RevenantCase0.png");
@@ -91,23 +102,23 @@ class Game {
      image(BackgroundImage,0,0);
      c1.UpdateY();
       // check if we consume all arrows
-      if(NumberOfFiredArrows==20){
-        
+      if(NumberOfFiredArrows==20 || HideBallons == 15){
+        if(HideBallons == 15){
+            println("win");
+        }else{
+            println("lose");
+
+          
+        }        
       }
       else{
-        if(!ch){
-             for(int i=0;i<15;i++)
-              {
-               Firedballon[i]=new RedBallon(i*40);
-               
-              }
-              ch = true;
-           }
+           
              for(int i=0;i<15;i++)
             {
+              if(!Firedballon[i].Hide){
              Firedballon[i].displayBallonLevel1();
              Firedballon[i].UpdateBallonLevel1();
-            } 
+            } }
       if(mousePressed && mouseButton == RIGHT) {
         c1.ReadySituation();
         //c1.setCase(true);
@@ -146,10 +157,22 @@ class Game {
       fill(255);
       textSize(32);
       text("Score: "+Score,650,490,180,40);
-      text("Remaining Arrows: "+20,650,450,380,40);
+      text("Remaining Arrows: "+(20-NumberOfFiredArrows),650,450,380,40);
+        for(int i=0; i<NumberOfFiredArrows;i++){
+            if(FiredArrows[i].getX()<960){
+           for(int j=0;j<15;j++)
+            {
+                        float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
+                        if(distance<40 && !Firedballon[j].Hide){
+                            Firedballon[j].Hide = true;
+                            HideBallons++;
+                            println(HideBallons);
+                        }
+          } }
 
       
-      }     
+        }   
    }
     
+}
 }
