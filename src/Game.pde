@@ -4,6 +4,7 @@ class Game {
    private boolean Selection = false;
    private int LastScore = 0;
    private int CurrentScore;
+   private int Score = 0;
   // New variables to track the state of the mouse buttons
   private boolean rightClicked = false;
   private boolean leftClicked = false;
@@ -11,6 +12,7 @@ class Game {
           
      Arrow[] FiredArrows=new Arrow[20];  
      int NumberOfFiredArrows=0;
+     int RemainingArrows = 20;
      
      RedBallon[] Firedballon= new RedBallon[15];
 
@@ -124,6 +126,7 @@ class Game {
       if(rightClicked && leftClicked) {
          FiredArrows[NumberOfFiredArrows]=(c1.CreateArrow());
          NumberOfFiredArrows++;
+         RemainingArrows--;
         // Reset both flags after action is performed
         rightClicked = false;
         leftClicked = false;
@@ -138,7 +141,12 @@ class Game {
         FiredArrows[i].ObjectPosition();
       
         }
-       
+       //Score display------------------------
+      //NewButton.drawButton("Score: "+Score,32,780,480,180,40);
+      fill(255);
+      textSize(32);
+      text("Score: "+Score,650,490,180,40);
+      text("Remaining Arrows: "+20,650,450,380,40);
 
       
       }     
