@@ -7,10 +7,11 @@ class Game {
   // New variables to track the state of the mouse buttons
   private boolean rightClicked = false;
   private boolean leftClicked = false;
-  
-  RedBallon r1 = new RedBallon(0);          
+          
      Arrow[] FiredArrows=new Arrow[20];  
      int NumberOfFiredArrows=0;
+     
+     RedBallon[] Firedballon= new RedBallon[15];
 
    Utils NewButton = new Utils();
    Character c1;
@@ -22,6 +23,11 @@ class Game {
    Game(){
       BackgroundImage = loadImage("../background/Background.jpg");
       image(BackgroundImage,0,0);
+           for(int i=0;i<15;i++)
+{
+ Firedballon[i]=new RedBallon(i*100);
+ 
+}
    }
    
    void setRoute(boolean route){
@@ -80,6 +86,7 @@ class Game {
        }
     }
     
+    
    void Start(){
      image(BackgroundImage,0,0);
      c1.UpdateY();
@@ -120,8 +127,13 @@ class Game {
         FiredArrows[i].ObjectPosition();
       
         }
-        r1.displayBallonLevel1();
-        r1.UpdateBallonLevel1();
-      }
-    }   
+       
+                  for(int i=0;i<15;i++)
+{
+ Firedballon[i].displayBallonLevel1();
+ Firedballon[i].UpdateBallonLevel1();
+} 
+      
+      }     
+    
 }

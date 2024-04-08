@@ -38,6 +38,7 @@ class Character extends Game {
     
   }  
   
+  
   void UpdateY(){
     CharacterY=mouseY >=370? 370: mouseY;
   
