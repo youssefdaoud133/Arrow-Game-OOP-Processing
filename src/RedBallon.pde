@@ -11,7 +11,7 @@ RedBallonPhoto = loadImage("../balloons/red.png");
    
     
     void displayBallonLevel1(){
-    image(RedBallonPhoto, getBallonXLevel1(), getBallonYLevel1(), 20, 20);
+    image(RedBallonPhoto, getBallonXLevel1(), getBallonYLevel1(), 100, 100);
     }
      void UpdateBallonLevel1(){
        super.setBallonYLevel1(getBallonYLevel1()-7);
