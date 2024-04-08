@@ -8,7 +8,7 @@ class Game {
   private boolean rightClicked = false;
   private boolean leftClicked = false;
   
- 
+  RedBallon r1 = new RedBallon(0);
      Arrow[] FiredArrows=new Arrow[20];
      int NumberOfFiredArrows=0;
 
@@ -118,6 +118,8 @@ class Game {
         FiredArrows[i].ObjectPosition();
       
         }
+        r1.displayBallonLevel1();
+        r1.UpdateBallonLevel1();
       }
     }   
 }

@@ -1,18 +1,20 @@
   class RedBallon extends Ballon {
    PImage RedBallonPhoto;
+    
    RedBallon(float d){
+RedBallonPhoto = loadImage("../balloons/red.png"); 
 
-      setBalloonXLevel1(getBallonXLevel1()+d);
+      setBallonXLevel1(getBallonXLevel1()+d);
       
       
    }
    
     
     void displayBallonLevel1(){
-     RedBallonPhoto = loadImage("—Pngtree—red balloon pixels_8975816.png"); 
+    image(RedBallonPhoto, getBallonXLevel1(), getBallonYLevel1(), 20, 20);
     }
      void UpdateBallonLevel1(){
-       super.setBalloonXLevel1(getBallonXLevel1());
+       super.setBallonYLevel1(getBallonYLevel1()-7);
       
       }
       
