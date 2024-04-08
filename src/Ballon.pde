@@ -1,6 +1,6 @@
  class Ballon{
-  private float BallonXLevel1 = 480;
-  private float BallonYLevel1 = 370;
+  private float BallonXLevel1 = 380;
+  private float BallonYLevel1 = 350;
   
   public void  setBallonXLevel1(float x){
     BallonXLevel1=x;

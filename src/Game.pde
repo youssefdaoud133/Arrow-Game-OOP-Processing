@@ -8,8 +8,8 @@ class Game {
   private boolean rightClicked = false;
   private boolean leftClicked = false;
   
-  RedBallon r1 = new RedBallon(0);
-     Arrow[] FiredArrows=new Arrow[20];
+  RedBallon r1 = new RedBallon(0);          
+     Arrow[] FiredArrows=new Arrow[20];  
      int NumberOfFiredArrows=0;
 
    Utils NewButton = new Utils();
@@ -84,7 +84,9 @@ class Game {
      image(BackgroundImage,0,0);
      c1.UpdateY();
       // check if we consume all arrows
-      if(NumberOfFiredArrows==20){}
+      if(NumberOfFiredArrows==20){
+        
+      }
       else{
       if(mousePressed && mouseButton == RIGHT) {
         c1.ReadySituation();
@@ -96,7 +98,7 @@ class Game {
         //rightClicked = false; // Reset flag when not right-clicked
       }
       // Check for left-click and if right-click was previously done
-      if(mousePressed && mouseButton == LEFT) {
+      if(mousePressed && mouseButton == LEFT && rightClicked) {
        // c1.setCase(false);
         leftClicked = true; // Reset flag after action is performed
       }
