@@ -20,7 +20,7 @@ class Arrow {
   }
     
   void  ObjectPosition() {
-    ArrowX += 15;
+    ArrowX += 5;
   // if (ArrowX> width) {
   // ArrowX = 0; }
   }  

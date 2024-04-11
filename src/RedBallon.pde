@@ -8,6 +8,6 @@ class RedBallon extends Ballon {
   }
 
   void UpdateBallonLevel1() {
-    super.setBallonYLevel1((getBallonYLevel1() - 4) < - 90 ? 350 : (getBallonYLevel1() - 4));
+    super.setBallonYLevel1((getBallonYLevel1() - 2) < - 90 ? 350 : (getBallonYLevel1() - 2));
   }
 }
