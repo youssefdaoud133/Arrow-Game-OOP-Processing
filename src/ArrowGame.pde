@@ -8,7 +8,7 @@ void setup() {
 }
 
 void draw() {
-  //Home page------------------
+  //Home page------------------ //<>//
   if (NewGame.getRoute()) {
     NewGame.Home();
   }

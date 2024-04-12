@@ -3,18 +3,9 @@ class Game {
   private boolean Route;
   private boolean Selection = false;
   private int LastScore = 0;
-  private int CurrentScore;
-  private int Score = 0;
-
-  //New variables to track the state of the mouse buttons
-  private boolean rightClicked = false;
-  private boolean leftClicked = false;
-  int HideBallons = 0;
-  boolean loadBallonAtOnce = false;
+  int stageOfGame = 1;
 
   Arrow[] FiredArrows = new Arrow[20];
-  int NumberOfFiredArrows = 0;
-  int RemainingArrows = 20;
 
   RedBallon[] Firedballon = new RedBallon[15];
 
@@ -25,6 +16,8 @@ class Game {
   PImage Character2;
   PImage Character3;
   PImage RedBallonPhoto;
+
+  Level1 level1 = new Level1();
   //Methods
   Game() {
     BackgroundImage = loadImage("../background/Background.jpg");
@@ -49,12 +42,7 @@ class Game {
     return Selection;
   }
 
-  void setCurrentScore(int score) {
-    CurrentScore = score;
-  }
-  int getCurrentScore() {
-    return CurrentScore;
-  }
+
 
   void Home() {
     //Start-------------------
@@ -79,96 +67,66 @@ class Game {
     if (mousePressed && mouseButton == LEFT && mouseX >= 100 && mouseX <= 250 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Human");
+      stageOfGame =1;
     }
     if (mousePressed && mouseButton == LEFT && mouseX >= 400 && mouseX <= 550 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Arlekina");
+      stageOfGame =1;
     }
     if (mousePressed && mouseButton == LEFT && mouseX >= 700 && mouseX <= 850 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Revenant");
+      stageOfGame =1;
     }
   }
 
 
   void Start() {
-    image(BackgroundImage, 0, 0);
-    if (!loadBallonAtOnce) {
-      for (int i = 0; i < 15; i++)
-      {
-        Firedballon[i] = new RedBallon(i * 40);
-      }
-      loadBallonAtOnce = true;
+    level1.loadBackGround(BackgroundImage);
+    switch (stageOfGame) {
+    case 0:
+      whenLoseLevel1();
+      break;
+    case 1:
+      implementLevel1();
+      break;
+    case 2:
+      whenWinLevel1();
+      break;
+    default:
+      System.out.println("Invalid option");
+      break;
     }
-    c1.UpdateY();
-    //check if we consume all arrows
-    if ((NumberOfFiredArrows ==  20 &&  FiredArrows[19].getX()>960 || HideBallons == 15)) {
-      if (HideBallons == 15) {
-        text("Level 1 completed", 400, 210, 300, 100);
-        text("Score: " + Score, 650, 490, 180, 40);
-      } else {
-        text("Try Again", 400, 210, 300, 100);
-        text("Score: " + Score, 650, 490, 180, 40);
-      }
-    } else {
+  }
 
-      for (int i = 0; i < 15; i++)
-      {
-        if (!Firedballon[i].Hide) {
-          Firedballon[i].displayBallonLevel1(RedBallonPhoto);
-          Firedballon[i].UpdateBallonLevel1();
-        }
-      }
-      if (mousePressed && mouseButton == RIGHT) {
-        c1.ReadySituation();
-        //c1.setCase(true);
-        rightClicked = true; // Set flag to true when right-clicked
-      } else {
-        c1.NormalSituation();
-        //rightClicked = false; // Reset flag when not right-clicked
-      }
-      // Check for left-click and if right-click was previously done
-      if (mousePressed && mouseButton == LEFT && rightClicked) {
-        // c1.setCase(false);
-        leftClicked = true; // Reset flag after action is performed
-      }
-      // when arrow shoul fired
-      if (rightClicked &&  leftClicked &&  NumberOfFiredArrows < 20) {
-        FiredArrows[NumberOfFiredArrows] = (c1.CreateArrow());
-        NumberOfFiredArrows++;
-        RemainingArrows--;
-        // Resetboth flags after action is performed
-        rightClicked = false;
-        leftClicked = false;
-      } else if (!mousePressed) {
-        // ResetleftClicked if the mouse is not pressed
-        rightClicked = false;
-        leftClicked = false;
-      }
-      // display and update arrow position
-      for (int i = 0; i < NumberOfFiredArrows; i++) {
-        FiredArrows[i].display();
-        FiredArrows[i].ObjectPosition();
-      }
-      //Score display------------------------
-      //NewButton.drawButton("Score: "+Score,32,780,480,180,40);
-      fill(255);
-      textSize(32);
-      text("Score: " + Score, 650, 490, 180, 40);
-      text("Remaining Arrows: " + (20 - NumberOfFiredArrows), 650, 450, 380, 40);
-      for (int i = 0; i < NumberOfFiredArrows; i++) {
-        if (FiredArrows[i].getX()<960) {
-          for (int j = 0; j < 15; j++)
-          {
-            float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
-            if (distance < 40 && !Firedballon[j].Hide) {
-              Firedballon[j].Hide = true;
-              HideBallons++;
-              Score = (21 - NumberOfFiredArrows) * HideBallons;
-            }
-          }
-        }
-      }
+
+
+  //check if we consume all arrows
+
+  void whenLoseLevel1() {
+    level1.setSettingsToDefaultLevel1(Firedballon);
+    Route =true;
+    Selection =false;
+    stageOfGame = 1;
+  }
+
+  void whenWinLevel1() {
+    text("Level 1 completed", 400, 210, 300, 100);
+    text("Score: " + level1.Score, 650, 490, 180, 40);
+  }
+
+  void implementLevel1() {
+    c1.UpdateY();
+    level1.loadRedBallonsAndDisplayIt(Firedballon, RedBallonPhoto);
+    level1.firedArrow(FiredArrows, c1);
+    level1.updatePositionOfArrow(FiredArrows);
+    level1.displayScore();
+    level1.poppedBallon(FiredArrows, Firedballon);
+    if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons == 15) {
+      stageOfGame = (level1.HideBallons == 15) ? 2 : 0;  // win : lose level 1
+    } else {
+      stageOfGame = 1;
     }
   }
 }

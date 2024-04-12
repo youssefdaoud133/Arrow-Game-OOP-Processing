@@ -2,6 +2,7 @@ class Arrow {
   private PImage ArrowPhoto; 
   private float ArrowX=70;
   private float ArrowY;
+  boolean Hide = false;
   
   Arrow(float CharacterY){
     ArrowY=CharacterY;
@@ -20,9 +21,13 @@ class Arrow {
   }
     
   void  ObjectPosition() {
-    ArrowX += 5;
-  // if (ArrowX> width) {
-  // ArrowX = 0; }
+   
+   if ((ArrowX< (width+5))) {
+    ArrowX += 8; 
+ 
+    }else{
+      Hide = true;
+    }
   }  
 
 }
