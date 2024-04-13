@@ -20,7 +20,7 @@ class Level1 extends Level {
     for (int i = 0; i < Firedballon.length; i++) {
         Firedballon[i] = null; // Set each element to null
     }
-    println("d");
+  
     
     
     

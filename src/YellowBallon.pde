@@ -1,0 +1,4 @@
+class YellowBallon extends Ballon{
+
+
+}

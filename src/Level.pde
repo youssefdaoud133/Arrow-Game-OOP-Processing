@@ -1,7 +1,6 @@
 class Level {
   int HideBallons = 0;
   boolean rightClicked = false;
-  boolean leftClicked = false;
   int stageOfGame = 0;
   int Score = 0;
 
@@ -69,8 +68,6 @@ class Level {
   void setSettingsToDefault() {
     HideBallons = 0;
     rightClicked = false;
-    leftClicked = false;
-    stageOfGame = 0;
     Score = 0;
     FiredArrows = new Arrow[20];
     NumberOfFiredArrows = 0;

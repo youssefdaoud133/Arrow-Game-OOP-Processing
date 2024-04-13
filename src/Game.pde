@@ -18,6 +18,8 @@ class Game {
   PImage RedBallonPhoto;
 
   Level1 level1 = new Level1();
+  Level2 level2 = new Level2();
+
   //Methods
   Game() {
     BackgroundImage = loadImage("../background/Background.jpg");
@@ -94,6 +96,9 @@ class Game {
     case 2:
       whenWinLevel1();
       break;
+    case 3:
+      level2();
+      break;
     default:
       System.out.println("Invalid option");
       break;
@@ -103,6 +108,23 @@ class Game {
 
 
   //check if we consume all arrows
+  
+  void level2(){
+     c1.UpdateY();
+    // display red random  ---- redballonclass
+    level2.firedArrow(FiredArrows, c1);
+    level2.updatePositionOfArrow(FiredArrows);
+    level2.displayScore();
+    if (false ) {
+     
+      stageOfGame = (level1.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
+    } else {
+      stageOfGame = 3;
+    }
+   
+
+      
+  }
 
   void whenLoseLevel1() {
     level1.setSettingsToDefaultLevel1(Firedballon);
@@ -112,8 +134,12 @@ class Game {
   }
 
   void whenWinLevel1() {
-    text("Level 1 completed", 400, 210, 300, 100);
-    text("Score: " + level1.Score, 650, 490, 180, 40);
+   level1.setSettingsToDefault();
+   NewButton.drawButton("Start", 64, 360, 200, 200, 80);
+    if (mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280) {
+      stageOfGame = 3;
+    }
+    
   }
 
   void implementLevel1() {
@@ -123,8 +149,8 @@ class Game {
     level1.updatePositionOfArrow(FiredArrows);
     level1.displayScore();
     level1.poppedBallon(FiredArrows, Firedballon);
-    if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons == 15) {
-      stageOfGame = (level1.HideBallons == 15) ? 2 : 0;  // win : lose level 1
+    if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==Firedballon.length ) {
+      stageOfGame = (level1.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
     } else {
       stageOfGame = 1;
     }
