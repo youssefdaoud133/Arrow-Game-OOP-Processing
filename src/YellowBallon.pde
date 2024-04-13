@@ -9,7 +9,8 @@ class YellowBallon extends Ballon {
   }
 
   void UpdateBallonLevel2() {
-    super.setBallonYLevel1((getBallonYLevel1() - random(1,5)) < - 90 ? 350 : (getBallonYLevel1() - random(1,5)));
-  }
+    for(float acc = 0.15;acc<=2;acc+=random(0.25,0.75)){
+    super.setBallonYLevel1((getBallonYLevel1() - random(1,5)+acc) < - 90 ? 350 : (getBallonYLevel1() - random(1,5)+acc));
+  }}
   
 }
