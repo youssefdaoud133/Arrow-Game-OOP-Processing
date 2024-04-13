@@ -9,6 +9,8 @@ class Game {
 
   RedBallon[] Firedballon = new RedBallon[15];
   YellowBallon[] Firedballon2 = new YellowBallon[3];
+  float[] initialPositions = new float[12];
+  RedBallon[] RedBallonLevel2 = new RedBallon[12];
 
   Utils NewButton = new Utils();
   Character c1;
@@ -124,7 +126,7 @@ class Game {
     } else {
       stageOfGame = 3;
     }
-   
+    level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
 
       
   }

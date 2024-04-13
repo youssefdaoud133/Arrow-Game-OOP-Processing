@@ -2,7 +2,9 @@ class RedBallon extends Ballon {
   RedBallon(int d) {
     setBallonXLevel1(getBallonXLevel1() + d);
   }
-   RedBallon() { 
+   
+  RedBallon(float d) {
+    setBallonXLevel1(getBallonXLevel1() + d);
   }
 
   void displayBallonLevel1(PImage RedBallonPhoto) {
@@ -13,4 +15,8 @@ class RedBallon extends Ballon {
     super.setBallonYLevel1((getBallonYLevel1() - 2) < - 90 ? 350 : (getBallonYLevel1() - 2));
   }
   
-}
+    void UpdateBallonLevel2(float speed) {
+     super.setBallonYLevel1((getBallonYLevel1() - speed ) < - 90 ? 350 : (getBallonYLevel1() - speed));
+  } 
+  
+  }
