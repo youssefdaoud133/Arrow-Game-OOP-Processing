@@ -8,6 +8,7 @@ class Game {
   Arrow[] FiredArrows = new Arrow[20];
 
   RedBallon[] Firedballon = new RedBallon[15];
+  YellowBallon[] Firedballon2 = new YellowBallon[3];
 
   Utils NewButton = new Utils();
   Character c1;
@@ -16,6 +17,7 @@ class Game {
   PImage Character2;
   PImage Character3;
   PImage RedBallonPhoto;
+  PImage YellowBallonPhoto;
 
   Level1 level1 = new Level1();
   Level2 level2 = new Level2();
@@ -24,6 +26,7 @@ class Game {
   Game() {
     BackgroundImage = loadImage("../background/Background.jpg");
     RedBallonPhoto = loadImage("../balloons/red.png");
+    YellowBallonPhoto = loadImage("../balloons/yellow.png");
     Character1 = loadImage("../characters/ArlekinaCase0.png");
     Character2 = loadImage("../characters/HumanCase0.png");
     Character3 = loadImage("../characters/RevenantCase0.png");
@@ -97,7 +100,7 @@ class Game {
       whenWinLevel1();
       break;
     case 3:
-      level2();
+      implementlevel2();
       break;
     default:
       System.out.println("Invalid option");
@@ -109,15 +112,15 @@ class Game {
 
   //check if we consume all arrows
   
-  void level2(){
-     c1.UpdateY();
-    // display red random  ---- redballonclass
+  void implementlevel2(){
+    c1.UpdateY();
+    level2.loadRedBallonsAndDisplayIt(Firedballon2,YellowBallonPhoto);
     level2.firedArrow(FiredArrows, c1);
     level2.updatePositionOfArrow(FiredArrows);
     level2.displayScore();
-    if (false ) {
-     
-      stageOfGame = (level1.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
+    level2.poppedBallon(FiredArrows, Firedballon2);
+    if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==Firedballon.length ) {
+      stageOfGame = (level2.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
     } else {
       stageOfGame = 3;
     }

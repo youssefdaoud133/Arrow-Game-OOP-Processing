@@ -3,6 +3,7 @@ class Level {
   boolean rightClicked = false;
   int stageOfGame = 0;
   int Score = 0;
+  float x = random(0,200);
 
   Arrow[] FiredArrows = new Arrow[20];
   int NumberOfFiredArrows = 0;
@@ -43,6 +44,21 @@ class Level {
     for (int i = 0; i < NumberOfFiredArrows; i++) {
       if (FiredArrows[i].getX()<960) {
         for (int j = 0; j < 15; j++)
+        {
+          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
+          if (distance < 40 && !Firedballon[j].Hide) {
+            Firedballon[j].Hide = true;
+            HideBallons++;
+            Score = (21 - NumberOfFiredArrows) * HideBallons;
+          }
+        }
+      }
+    }
+  }
+  void poppedBallon(Arrow[] FiredArrows, YellowBallon [] Firedballon) {
+    for (int i = 0; i < NumberOfFiredArrows; i++) {
+      if (FiredArrows[i].getX()<960) {
+        for (int j = 0; j < 3; j++)
         {
           float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
           if (distance < 40 && !Firedballon[j].Hide) {

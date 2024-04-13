@@ -1,4 +1,4 @@
-Game NewGame;
+Game NewGame; //<>//
 void setup() {
   size(960, 540);
   //Objects-----------------------
@@ -8,7 +8,7 @@ void setup() {
 }
 
 void draw() {
-  //Home page------------------ //<>//
+  //Home page------------------
   if (NewGame.getRoute()) {
     NewGame.Home();
   }
