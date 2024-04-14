@@ -1,26 +1,18 @@
  class Ballon{
-  private float BallonXLevel1 = 320;
-  private float BallonYLevel1 = 350;
+  private float BallonXLevel = 320;
+  private float BallonYLevel = 350;
   boolean Hide = false;
   
-  public void  setBallonXLevel1(float x){
-    BallonXLevel1=x;
+  public void  setBallonXLevel(float x){
+    BallonXLevel=x;
   }
-  public  void  setBallonYLevel1(float y){
-    BallonYLevel1=y;
+  public  void  setBallonYLevel(float y){
+    BallonYLevel=y;
   }
-  public float getBallonXLevel1(){
-   return BallonXLevel1; 
+  public float getBallonXLevel(){
+   return BallonXLevel; 
   }
-  public float getBallonYLevel1(){
-   return BallonYLevel1; 
+  public float getBallonYLevel(){
+   return BallonYLevel; 
   }
  }
-  
-  
-   
-   
-   
-   
-   
- 

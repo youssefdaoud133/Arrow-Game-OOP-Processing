@@ -3,7 +3,6 @@ class Level {
   boolean rightClicked = false;
   int stageOfGame = 0;
   int Score = 0;
-  float x = random(0,200);
 
   Arrow[] FiredArrows = new Arrow[20];
   int NumberOfFiredArrows = 0;
@@ -40,12 +39,12 @@ class Level {
     text("Remaining Arrows: " + (20 - NumberOfFiredArrows), 650, 450, 380, 40);
   }
 
-  void poppedBallon(Arrow[] FiredArrows, RedBallon [] Firedballon) {
+  void poppedBallonLevel1(Arrow[] FiredArrows, RedBallon [] Firedballon) {
     for (int i = 0; i < NumberOfFiredArrows; i++) {
       if (FiredArrows[i].getX()<960) {
         for (int j = 0; j < 15; j++)
         {
-          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
+          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel(), Firedballon[j].getBallonYLevel());
           if (distance < 40 && !Firedballon[j].Hide) {
             Firedballon[j].Hide = true;
             HideBallons++;
@@ -55,12 +54,12 @@ class Level {
       }
     }
   }
-  void poppedBallon(Arrow[] FiredArrows, YellowBallon [] Firedballon) {
+  void poppedYellowBallon(Arrow[] FiredArrows, YellowBallon [] Firedballon) {
     for (int i = 0; i < NumberOfFiredArrows; i++) {
       if (FiredArrows[i].getX()<960) {
         for (int j = 0; j < 3; j++)
         {
-          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel1(), Firedballon[j].getBallonYLevel1());
+          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel(), Firedballon[j].getBallonYLevel());
           if (distance < 40 && !Firedballon[j].Hide) {
             Firedballon[j].Hide = true;
             HideBallons++;
@@ -70,12 +69,12 @@ class Level {
       }
     }
   }
-    void poppedBallon2(Arrow[] FiredArrows, RedBallon[] RedBallonLevel2) {
+    void poppedRedBallon(Arrow[] FiredArrows, RedBallon[] RedBallonLevel2) {
     for (int i = 0; i < NumberOfFiredArrows; i++) {
       if (FiredArrows[i].getX()<960) {
         for (int j = 0; j < 12; j++)
         {
-          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), RedBallonLevel2[j].getBallonXLevel1(),RedBallonLevel2[j].getBallonYLevel1());
+          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), RedBallonLevel2[j].getBallonXLevel(),RedBallonLevel2[j].getBallonYLevel());
           if (distance < 40 && !RedBallonLevel2[j].Hide) {
             RedBallonLevel2[j].Hide = true;
             HideBallons++;

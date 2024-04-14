@@ -22,7 +22,7 @@ class Level2 extends Level {
     }
   }
    
-  void setSettingsToDefaultLevel1(RedBallon[] RedBallonLevel2){
+  void setREDSettingsToDefaultLevel2(RedBallon[] RedBallonLevel2){
     super.setSettingsToDefault();
     for (int i = 0; i < RedBallonLevel2.length; i++) {
         RedBallonLevel2[i] = null; // Set each element to null
@@ -46,34 +46,27 @@ class Level2 extends Level {
   
   
   
-  void loadRedBallonsAndDisplayIt(YellowBallon [] Firedballon, PImage YellowBallonPhoto) {
+  void loadYellowBallonsAndDisplayIt(YellowBallon [] Firedballon, PImage YellowBallonPhoto) {
     randomSeed(30);
     for (int i = 0; i < Firedballon.length; i++)
     {
-      if (Firedballon[i] == null) {//x =60    y=60
-        float y = random(x,x+70);
-        x = y;
-        println(x);
-        Firedballon[i] = new YellowBallon(x);
+      if (Firedballon[i] == null) {
+        float randomX = random(width/2,900);
+        println(randomX);
+        Firedballon[i] = new YellowBallon(randomX);
       }
       
       if (!Firedballon[i].Hide) {
-        Firedballon[i].displayBallonLevel2(YellowBallonPhoto);
-        Firedballon[i].UpdateBallonLevel2();
+        Firedballon[i].displayYellowBallonLevel2(YellowBallonPhoto);
+        Firedballon[i].UpdateYellowBallonLevel2();
       }  
     }
   }
      
-  void setSettingsToDefaultLevel2(YellowBallon [] Firedballon){
+  void setYellowSettingsToDefaultLevel2(YellowBallon [] Firedballon){
     super.setSettingsToDefault();
     for (int i = 0; i < Firedballon.length; i++) {
         Firedballon[i] = null; // Set each element to null
-    }
-  
-    
-    
-    
-  }
-  
-  
+    }    
+  } 
 }

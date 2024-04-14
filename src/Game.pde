@@ -7,8 +7,8 @@ class Game {
 
   Arrow[] FiredArrows = new Arrow[20];
 
-  RedBallon[] Firedballon = new RedBallon[15];
-  YellowBallon[] Firedballon2 = new YellowBallon[3];
+  RedBallon[] FiredballonLevel1 = new RedBallon[15];
+  YellowBallon[] FiredYellowBallon = new YellowBallon[3];
   float[] initialPositions = new float[12];
   RedBallon[] RedBallonLevel2 = new RedBallon[12];
 
@@ -74,17 +74,14 @@ class Game {
     if (mousePressed && mouseButton == LEFT && mouseX >= 100 && mouseX <= 250 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Human");
-      stageOfGame =1;
     }
     if (mousePressed && mouseButton == LEFT && mouseX >= 400 && mouseX <= 550 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Arlekina");
-      stageOfGame =1;
     }
     if (mousePressed && mouseButton == LEFT && mouseX >= 700 && mouseX <= 850 && mouseY >= 430 && mouseY <= 470) {
       Route = false;
       c1 = new Character("Revenant");
-      stageOfGame =1;
     }
   }
 
@@ -101,8 +98,14 @@ class Game {
     case 2:
       whenWinLevel1();
       break;
+    case 4:
+      whenLoseLevel2();
+      break;
     case 3:
-      implementlevel2();
+      implementLevel2();
+      break;
+    case 5:
+      whenWinLevel2();
       break;
     default:
       System.out.println("Invalid option");
@@ -114,26 +117,10 @@ class Game {
 
   //check if we consume all arrows
   
-  void implementlevel2(){
-    c1.UpdateY();
-    level2.loadRedBallonsAndDisplayIt(Firedballon2,YellowBallonPhoto);
-     level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
-    level2.firedArrow(FiredArrows, c1);
-    level2.updatePositionOfArrow(FiredArrows);
-    level2.displayScore();
-    level2.poppedBallon(FiredArrows, Firedballon2);
-     level2.poppedBallon2(FiredArrows, RedBallonLevel2);
-    if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==Firedballon.length ) {
-      stageOfGame = (level2.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
-    } else {
-      stageOfGame = 3;
-    }
-    //level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
-      
-  }
+  
 
   void whenLoseLevel1() {
-    level1.setSettingsToDefaultLevel1(Firedballon);
+    level1.setSettingsToDefaultLevel1(FiredballonLevel1);
     Route =true;
     Selection =false;
     stageOfGame = 1;
@@ -150,15 +137,48 @@ class Game {
 
   void implementLevel1() {
     c1.UpdateY();
-    level1.loadRedBallonsAndDisplayIt(Firedballon, RedBallonPhoto);
+    level1.loadRedBallonsAndDisplayIt(FiredballonLevel1, RedBallonPhoto);
     level1.firedArrow(FiredArrows, c1);
     level1.updatePositionOfArrow(FiredArrows);
     level1.displayScore();
-    level1.poppedBallon(FiredArrows, Firedballon);
-    if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==Firedballon.length ) {
-      stageOfGame = (level1.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
+    level1.poppedBallonLevel1(FiredArrows, FiredballonLevel1);
+    if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==FiredballonLevel1.length ) {
+      stageOfGame = (level1.HideBallons == FiredballonLevel1.length) ? 2 : 0 ;  // win : lose level 1
     } else {
       stageOfGame = 1;
     }
+  }
+  
+  void implementLevel2(){
+    c1.UpdateY();
+    level2.loadYellowBallonsAndDisplayIt(FiredYellowBallon,YellowBallonPhoto);
+    level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
+    level2.firedArrow(FiredArrows, c1);
+    level2.updatePositionOfArrow(FiredArrows);
+    level2.displayScore();
+    level2.poppedYellowBallon(FiredArrows, FiredYellowBallon);
+    level2.poppedRedBallon(FiredArrows, RedBallonLevel2);
+    if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==FiredYellowBallon.length ) {
+      stageOfGame = (level2.HideBallons == 15) ? 5 : 4 ;  // win : lose level 2
+    } else {
+      stageOfGame = 3;
+    }
+    //level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
+      
+  }
+  void whenLoseLevel2() {
+    level2.setREDSettingsToDefaultLevel2(RedBallonLevel2);
+    level2.setYellowSettingsToDefaultLevel2(FiredYellowBallon);
+    //Route =true;
+    //Selection =false;
+    stageOfGame = 2;
+  }
+
+  void whenWinLevel2() {
+   PFont font;
+   font = createFont("../fonts/KnightWarrior-w16n8.otf",1);
+   textFont(font,120);
+   fill(255);
+   text("WELL DONE",120,120);
   }
 }
