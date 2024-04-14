@@ -1,32 +1,34 @@
 class Level2 extends Level {
   
     float[] initialPositions = new float[12]; // Store initial positions for red balloons
-    float balloonSpeed = 2; // Constant speed for balloons
-
+   
   void loadRedBallonsAndDisplayIt(RedBallon[] RedBallonLevel2,PImage RedBallonPhoto) {
     if (initialPositions[0] == 0) { // Check if initial positions are set
       // Set random initial positions for each red balloon
       for (int i = 0; i < initialPositions.length; i++) {
-       // initialPositions[i] = random(10, 600); // Adjust range as needed
-       initialPositions[i] = random(2,7);
+       initialPositions[i] = random(height + 100, height + 300);
       }
     }
 
     for (int i = 0; i < RedBallonLevel2.length; i++) {
       if (RedBallonLevel2[i] == null) {
-        RedBallonLevel2[i] = new RedBallon(i*50+5);
+        RedBallonLevel2[i] = new RedBallon(i*50+5,initialPositions[i]);
       }
 
       if (!RedBallonLevel2[i].Hide) {
       RedBallonLevel2[i].displayBallonLevel1(RedBallonPhoto);
-        RedBallonLevel2[i].UpdateBallonLevel2( balloonSpeed  ); // Pass the balloon speed
+        RedBallonLevel2[i].UpdateBallonLevel2( ); 
       }
     }
   }
    
+  void setSettingsToDefaultLevel1(RedBallon[] RedBallonLevel2){
+    super.setSettingsToDefault();
+    for (int i = 0; i < RedBallonLevel2.length; i++) {
+        RedBallonLevel2[i] = null; // Set each element to null
+    }
   
-  
-  
+  }
   
   
   

@@ -117,17 +117,18 @@ class Game {
   void implementlevel2(){
     c1.UpdateY();
     level2.loadRedBallonsAndDisplayIt(Firedballon2,YellowBallonPhoto);
+     level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
     level2.firedArrow(FiredArrows, c1);
     level2.updatePositionOfArrow(FiredArrows);
     level2.displayScore();
     level2.poppedBallon(FiredArrows, Firedballon2);
+     level2.poppedBallon2(FiredArrows, RedBallonLevel2);
     if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==Firedballon.length ) {
       stageOfGame = (level2.HideBallons == Firedballon.length) ? 2 :0;  // win : lose level 1
     } else {
       stageOfGame = 3;
     }
-    level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
-
+    //level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
       
   }
 

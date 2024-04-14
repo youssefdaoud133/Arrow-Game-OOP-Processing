@@ -70,6 +70,21 @@ class Level {
       }
     }
   }
+    void poppedBallon2(Arrow[] FiredArrows, RedBallon[] RedBallonLevel2) {
+    for (int i = 0; i < NumberOfFiredArrows; i++) {
+      if (FiredArrows[i].getX()<960) {
+        for (int j = 0; j < 12; j++)
+        {
+          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), RedBallonLevel2[j].getBallonXLevel1(),RedBallonLevel2[j].getBallonYLevel1());
+          if (distance < 40 && !RedBallonLevel2[j].Hide) {
+            RedBallonLevel2[j].Hide = true;
+            HideBallons++;
+            Score = (21 - NumberOfFiredArrows) * HideBallons;
+          }
+        }
+      }
+    }
+  }
 
   void updatePositionOfArrow(Arrow[] FiredArrows) {
     // display and update arrow position
