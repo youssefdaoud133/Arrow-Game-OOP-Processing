@@ -129,7 +129,7 @@ class Game {
 
   void whenWinLevel1() {
    level1.setSettingsToDefault();
-   NewButton.drawButton("Start", 64, 360, 200, 200, 80);
+   NewButton.drawButton("Next", 64, 360, 200, 200, 80);
     if (mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280) {
       stageOfGame = 3;
     }
