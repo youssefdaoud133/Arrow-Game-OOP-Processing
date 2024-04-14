@@ -3,7 +3,7 @@ class Game {
   private boolean Route;
   private boolean Selection = false;
   private int LastScore = 0;
-  int stageOfGame = 1;
+  int stageOfGame = 3;
 
   Arrow[] FiredArrows = new Arrow[20];
 
@@ -98,11 +98,12 @@ class Game {
     case 2:
       whenWinLevel1();
       break;
-    case 4:
-      whenLoseLevel2();
-      break;
+   
     case 3:
       implementLevel2();
+      break;
+    case 4:
+      whenLoseLevel2();
       break;
     case 5:
       whenWinLevel2();
@@ -141,7 +142,7 @@ class Game {
     level1.firedArrow(FiredArrows, c1);
     level1.updatePositionOfArrow(FiredArrows);
     level1.displayScore();
-    level1.poppedBallonLevel1(FiredArrows, FiredballonLevel1);
+    level1.poppedBallonLevel(FiredArrows, FiredballonLevel1);
     if ((level1.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==FiredballonLevel1.length ) {
       stageOfGame = (level1.HideBallons == FiredballonLevel1.length) ? 2 : 0 ;  // win : lose level 1
     } else {
@@ -155,15 +156,15 @@ class Game {
     level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
     level2.firedArrow(FiredArrows, c1);
     level2.updatePositionOfArrow(FiredArrows);
-    level2.displayScore();
-    level2.poppedYellowBallon(FiredArrows, FiredYellowBallon);
-    level2.poppedRedBallon(FiredArrows, RedBallonLevel2);
+    level2.displayScore(); // 
+    level2.poppedBallonLevel(FiredArrows, FiredYellowBallon);
+    level2.poppedBallonLevel(FiredArrows, RedBallonLevel2);
     if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==FiredYellowBallon.length ) {
       stageOfGame = (level2.HideBallons == 15) ? 5 : 4 ;  // win : lose level 2
     } else {
       stageOfGame = 3;
     }
-    //level2.loadRedBallonsAndDisplayIt( RedBallonLevel2, RedBallonPhoto);
+
       
   }
   void whenLoseLevel2() {

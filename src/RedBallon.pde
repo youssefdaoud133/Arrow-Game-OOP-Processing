@@ -13,14 +13,7 @@ class RedBallon extends Ballon {
   }
 
   void UpdateBallonLevel2() {
-   
-    setBallonYLevel(getBallonYLevel() - 2);
-
-    // Check if the RedBallon has moved above the top of the screen
-    if (getBallonYLevel() < -100) {
-      // Reset the RedBallon's position to appear at the bottom of the screen
-      setBallonYLevel(random(-90, height + 300)); // Random position below the screen
-    }
+    this.UpdateBallonLevel1();
   }
 
     void UpdateBallonLevel1() {

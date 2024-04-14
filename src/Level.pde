@@ -39,10 +39,10 @@ class Level {
     text("Remaining Arrows: " + (20 - NumberOfFiredArrows), 650, 450, 380, 40);
   }
 
-  void poppedBallonLevel1(Arrow[] FiredArrows, RedBallon [] Firedballon) {
+  void poppedBallonLevel(Arrow[] FiredArrows, Ballon [] Firedballon) {
     for (int i = 0; i < NumberOfFiredArrows; i++) {
       if (FiredArrows[i].getX()<960) {
-        for (int j = 0; j < 15; j++)
+        for (int j = 0; j < Firedballon.length; j++)
         {
           float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel(), Firedballon[j].getBallonYLevel());
           if (distance < 40 && !Firedballon[j].Hide) {
@@ -54,36 +54,7 @@ class Level {
       }
     }
   }
-  void poppedYellowBallon(Arrow[] FiredArrows, YellowBallon [] Firedballon) {
-    for (int i = 0; i < NumberOfFiredArrows; i++) {
-      if (FiredArrows[i].getX()<960) {
-        for (int j = 0; j < 3; j++)
-        {
-          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), Firedballon[j].getBallonXLevel(), Firedballon[j].getBallonYLevel());
-          if (distance < 40 && !Firedballon[j].Hide) {
-            Firedballon[j].Hide = true;
-            HideBallons++;
-            Score = (21 - NumberOfFiredArrows) * HideBallons;
-          }
-        }
-      }
-    }
-  }
-    void poppedRedBallon(Arrow[] FiredArrows, RedBallon[] RedBallonLevel2) {
-    for (int i = 0; i < NumberOfFiredArrows; i++) {
-      if (FiredArrows[i].getX()<960) {
-        for (int j = 0; j < 12; j++)
-        {
-          float distance = dist(FiredArrows[i].getX(), FiredArrows[i].getY(), RedBallonLevel2[j].getBallonXLevel(),RedBallonLevel2[j].getBallonYLevel());
-          if (distance < 40 && !RedBallonLevel2[j].Hide) {
-            RedBallonLevel2[j].Hide = true;
-            HideBallons++;
-            Score = (21 - NumberOfFiredArrows) * HideBallons;
-          }
-        }
-      }
-    }
-  }
+
 
   void updatePositionOfArrow(Arrow[] FiredArrows) {
     // display and update arrow position
