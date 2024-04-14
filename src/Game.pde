@@ -159,8 +159,8 @@ class Game {
     level2.displayScore(); // 
     level2.poppedBallonLevel(FiredArrows, FiredYellowBallon);
     level2.poppedBallonLevel(FiredArrows, RedBallonLevel2);
-    if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level1.HideBallons ==FiredYellowBallon.length ) {
-      stageOfGame = (level2.HideBallons == 15) ? 5 : 4 ;  // win : lose level 2
+    if ((level2.NumberOfFiredArrows == FiredArrows.length && FiredArrows[FiredArrows.length - 1].getX() > 960) || level2.HideBallons ==15) {
+      stageOfGame = (level2.HideBallons == 15) ? 5 : 4 ;  // win : lose level 1
     } else {
       stageOfGame = 3;
     }
@@ -170,16 +170,15 @@ class Game {
   void whenLoseLevel2() {
     level2.setREDSettingsToDefaultLevel2(RedBallonLevel2);
     level2.setYellowSettingsToDefaultLevel2(FiredYellowBallon);
-    //Route =true;
-    //Selection =false;
     stageOfGame = 2;
   }
 
   void whenWinLevel2() {
-   PFont font;
-   font = createFont("../fonts/KnightWarrior-w16n8.otf",1);
-   textFont(font,120);
-   fill(255);
-   text("WELL DONE",120,120);
+    level2.setREDSettingsToDefaultLevel2(RedBallonLevel2);
+    level2.setYellowSettingsToDefaultLevel2(FiredYellowBallon);
+   NewButton.drawButton("Again", 64, 360, 200, 200, 80);
+    if (mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280) {
+      stageOfGame = 0;
   }
+}
 }
