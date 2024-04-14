@@ -3,7 +3,7 @@ class Game {
   private boolean Route;
   private boolean Selection = false;
   private int LastScore = 0;
-  int stageOfGame = 3;
+  int stageOfGame = 1;
 
   Arrow[] FiredArrows = new Arrow[20];
 
