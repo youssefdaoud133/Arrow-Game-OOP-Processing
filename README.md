@@ -1,17 +1,25 @@
-# Project Title
+# Bow and Arrow Game
 
-Short description or tagline about the project.
+<p align="center">
+  <img src="./Readme/intro.jpg" alt="Alt text" />
+</p>
+
+Welcome to the Bow and Arrow challenge – an exciting game that tests your precision,
+speed, and strategic thinking! In this game, you'll step into the shoes of an archer with
+the mission to pop colorful balloons using your bow and arrow. Are you up for the
+challenge?
 
 ## Table of Contents
 
-- [About](#about)
+- [Introduction](#Introduction)
+- [Controls](#Controls)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Game play](#Game%20play)
+- [Uml diagram](#Uml%20diagram)
+- [Scoring system](#Scoring%20system)
+- [Licence](#Licence)
 
-## About
+## Controls
 
 Brief overview of the project, its purpose, and any key features.
 
@@ -24,4 +32,3 @@ Brief overview of the project, its purpose, and any key features.
 
 Step-by-step guide on how to install the project or any prerequisites required.
 Include commands for installing dependencies.
-
