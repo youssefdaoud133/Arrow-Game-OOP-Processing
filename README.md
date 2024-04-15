@@ -20,8 +20,23 @@ challenge?
 - [Licence](#Licence)
 
 ## Controls
-
-Brief overview of the project, its purpose, and any key features.
+                    
+**Character Movement**: Move the Character by pointing the mouse cursor.  
+**Right Mouse Button**: Change the Character's state from normal to ready to shoot Balloons.    
+**Left Mouse Button**: While holding down the right mouse button, press the left mouse button to shoot an arrow and pop balloons.                      
+There are some photos to Charcter in Normal situation and in 
+Ready situation. 
+   <table>
+  <tr>
+    <td align="center">
+      <img src="./characters/HumanCase0.png" alt="Image 1" width="250" height="150">
+      <p>Normal Situation</p>
+    </td>
+    <td align="center">
+      <img src="./characters/HumanCase1.png" alt="Image 2" width="250" height="150">
+      <p>Ready Situation</p>
+    </td>
+  </tr></table>
 
 ## Features
 - Game Levels:
