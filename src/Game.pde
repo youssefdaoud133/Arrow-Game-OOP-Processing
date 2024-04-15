@@ -2,7 +2,6 @@ class Game {
   //variables
   private boolean Route;
   private boolean Selection = false;
-  private int LastScore = 0;
   int stageOfGame = 1;
 
   Arrow[] FiredArrows = new Arrow[20];
@@ -57,8 +56,7 @@ class Game {
     if (mousePressed && mouseButton == LEFT && mouseX >= 360 && mouseX <= 560 && mouseY >= 200 && mouseY <= 280) {
       Selection = true;
     }
-    //Last score--------------
-    NewButton.drawButton("Last Score : " + LastScore, 32, 335, 350, 250, 40);
+
   }
 
   void CharcSelect() {

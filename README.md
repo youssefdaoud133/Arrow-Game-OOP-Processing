@@ -15,7 +15,7 @@ challenge?
 - [Controls](#Controls)
 - [Features](#features)
 - [Game play](#Game%20play)
-- [Uml diagram](#Uml%20diagram)
+- [Uml diagram](#uml%20diagram)
 - [Scoring system](#Scoring%20system)
 - [Licence](#Licence)
 
@@ -28,7 +28,6 @@ Brief overview of the project, its purpose, and any key features.
 - List of key features or functionalities.
 - Use bullet points or numbered lists.
 
-## Installation
+## Uml diagram
 
-Step-by-step guide on how to install the project or any prerequisites required.
-Include commands for installing dependencies.
+- <img src="./Readme//UML diagrams.svg" alt="SVG Image" />
