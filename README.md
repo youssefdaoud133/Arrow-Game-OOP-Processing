@@ -9,6 +9,20 @@ speed, and strategic thinking! In this game, you'll step into the shoes of an ar
 the mission to pop colorful balloons using your bow and arrow. Are you up for the
 challenge?
 
+## Introduction
+Welcome to the Bow and Arrow Challenge!
+
+Prepare to immerse yourself in an exhilarating adventure that combines precision, speed, and strategic thinking. In this game, you'll step into the shoes of a skilled archer on a mission to pop colorful balloons using your bow and arrow. 
+
+You will face exciting challenges across multiple levels, each designed to push your abilities to the limit. From popping red balloons with constant speed to tackling tricky yellow balloons with irregular movements, every shot counts towards your score and progress.
+
+ With a limited number of arrows at your disposal, you must manage your resources wisely, reload at the right moments, and aim true to maximize your score.
+
+ Dive in, test your archery skills. Good luck, and may your arrows fly straight and true!
+
+<img src="./Readme/Level1.jpg" alt="Level1" />
+
+
 ## Table of Contents
 
 - [Introduction](#Introduction)
