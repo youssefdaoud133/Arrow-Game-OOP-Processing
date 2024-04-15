@@ -9,19 +9,6 @@ speed, and strategic thinking! In this game, you'll step into the shoes of an ar
 the mission to pop colorful balloons using your bow and arrow. Are you up for the
 challenge?
 
-## Introduction
-Welcome to the Bow and Arrow Challenge!
-
-Prepare to immerse yourself in an exhilarating adventure that combines precision, speed, and strategic thinking. In this game, you'll step into the shoes of a skilled archer on a mission to pop colorful balloons using your bow and arrow. 
-
-You will face exciting challenges across multiple levels, each designed to push your abilities to the limit. From popping red balloons with constant speed to tackling tricky yellow balloons with irregular movements, every shot counts towards your score and progress.
-
- With a limited number of arrows at your disposal, you must manage your resources wisely, reload at the right moments, and aim true to maximize your score.
-
- Dive in, test your archery skills. Good luck, and may your arrows fly straight and true!
-
-<img src="./Readme/Level1.jpg" alt="Level1" />
-
 
 ## Table of Contents
 
@@ -32,6 +19,18 @@ You will face exciting challenges across multiple levels, each designed to push 
 - [Uml diagram](#uml%20diagram)
 - [Scoring system](#Scoring%20system)
 - [Licence](#Licence)
+
+## Introduction
+Welcome to the Bow and Arrow Challenge!
+
+Prepare to immerse yourself in an exhilarating adventure that combines precision, speed, and strategic thinking. In this game, you'll step into the shoes of a skilled archer on a mission to pop colorful balloons using your bow and arrow. 
+
+You will face exciting challenges across multiple levels, each designed to push your abilities to the limit. From popping red balloons with constant speed to tackling tricky yellow balloons with irregular movements, every shot counts towards your score and progress.
+
+ With a limited number of arrows at your disposal, you must manage your resources wisely, reload at the right moments, and aim true to maximize your score.
+
+ Dive in, test your archery skills. Good luck, and may your arrows fly straight and true!
+<img src="./Readme/level1.jpg" alt="Level1" />
 
 ## Controls
                     
@@ -82,10 +81,6 @@ Ready situation.
       <p>Revenant</p>
     </td>
   </tr></table>
-
-- Soundtrack and Audio Effects:
-
-  we added sound effect when you hit ballon
 
 - Initial Controls:
 
@@ -197,3 +192,15 @@ In the game, if you lose in level 1, you will try level 1 again. If you win, you
 ## Uml diagram
 
 - <img src="./Readme//UML diagrams.svg" alt="SVG Image" />
+
+## Scoring system
+- Score = (Remaining Arrows + 1) * Number of Shot Balloons.
+- The score accumulates each turn, reflecting your skill and accuracy.
+- Progress to the next level upon successfully hitting all the balloons in the current
+level.
+
+## Licence
+
+Open Source License
+You are free to use, modify, and distribute this software for any purpose.
+Please refer to the LICENSE file for the full terms and conditions.
