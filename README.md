@@ -77,6 +77,109 @@ Ready situation.
 
   you will start each level with 20 Arrows.
 
+## Game play
+In this game, we have a character that moves only in the y-direction, starting from a fixed point, which is the green ground of the background. They change their situation; if you click right, it appears as the Normal Situation, and if you click left, it shows the Ready Situation
+
+```Java
+void NormalSituation() {
+    image(CharacterImage1, CharacterX, CharacterY-(CharacterHeight/2), CharacterWidth, CharacterHeight);
+}
+
+void ReadySituation() {
+    image(CharacterImage2, CharacterX, CharacterY-(CharacterHeight/2), CharacterWidth, CharacterHeight);
+}      
+
+void UpdateY() {
+    CharacterY=mouseY >=370? 370: mouseY;
+}
+```
+The arrows in the game indicate the character's y-direction and move horizontally (in the x-direction) at a constant speed.
+```Java
+private float ArrowX=70;
+  private float ArrowY;
+float getX(){
+    return ArrowX;
+}
+
+float getY(){
+    return ArrowY;
+}
+
+void display() {
+    image(ArrowPhoto, ArrowX, ArrowY, 100, 100);
+}
+
+void ObjectPosition() {
+    if (ArrowX < (width + 5)) {
+        ArrowX += 8;
+    } else {
+        Hide = true;
+    }
+}
+```
+
+
+In Level One, the red balloons move in the y-direction at a constant speed, with each one spaced apart from the others in the x-direction
+
+In Level 2, there are 15 balloons, with 12 of them being red balloons. They move in the y-direction with constant speed but appear on the screen from different positions.
+
+```Java 
+// this is the parent class of balloons
+public void  setBallonXLevel(float x){
+    BallonXLevel=x;
+  }
+  public  void  setBallonYLevel(float y){
+    BallonYLevel=y;
+  }
+  public float getBallonXLevel(){
+   return BallonXLevel; 
+  }
+  public float getBallonYLevel(){
+   return BallonYLevel; 
+  }
+  ```
+  ```Java
+  // this is the class RedBallon
+
+class RedBallon extends Ballon {
+  RedBallon(int d) {
+    setBallonXLevel(getBallonXLevel() + d);
+  }
+   
+  RedBallon(int d, float initialY) {
+    setBallonXLevel(getBallonXLevel() + d);
+     setBallonYLevel(initialY);
+  }
+
+  void displayBallonLevel1(PImage RedBallonPhoto) {
+    image(RedBallonPhoto, getBallonXLevel(), getBallonYLevel(), 80, 80);
+  }
+
+  void UpdateBallonLevel2() {
+    this.UpdateBallonLevel1();
+  }
+
+    void UpdateBallonLevel1() {
+     super.setBallonYLevel((getBallonYLevel() -2 ) < - 90 ? 350 : (getBallonYLevel() - 2));
+  } 
+  
+  }
+```
+And there are 3 yellow balloons; they move in the y-direction at different speeds and accelerations, adding an extra challenge to Level 2
+
+
+In the game, if you lose in level 1, you will try level 1 again. If you win, you will proceed to level 2. If you lose in level 2, you will retry level 2 again and not return to level 1
+
+
+
+
+
+
+
+
+
+
+
 ## Uml diagram
 
 - <img src="./Readme//UML diagrams.svg" alt="SVG Image" />
